@@ -1,4 +1,4 @@
-package com.alessandro54.jwtspring.domain;
+package com.terasofty.legiz.domain;
 
 
 import lombok.*;

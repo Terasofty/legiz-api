@@ -1,8 +1,8 @@
-package com.alessandro54.jwtspring.api;
+package com.terasofty.legiz.api;
 
-import com.alessandro54.jwtspring.domain.Role;
-import com.alessandro54.jwtspring.domain.User;
-import com.alessandro54.jwtspring.service.UserService;
+import com.terasofty.legiz.domain.Role;
+import com.terasofty.legiz.domain.User;
+import com.terasofty.legiz.service.UserService;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;

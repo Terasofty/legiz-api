@@ -1,7 +1,7 @@
-package com.alessandro54.jwtspring.service;
+package com.terasofty.legiz.service;
 
-import com.alessandro54.jwtspring.domain.Role;
-import com.alessandro54.jwtspring.domain.User;
+import com.terasofty.legiz.domain.Role;
+import com.terasofty.legiz.domain.User;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
-package com.alessandro54.jwtspring.repository;
+package com.terasofty.legiz.repository;
 
-import com.alessandro54.jwtspring.domain.Role;
+import com.terasofty.legiz.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {

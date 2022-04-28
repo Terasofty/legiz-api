@@ -1,7 +1,7 @@
-package com.alessandro54.jwtspring.security;
+package com.terasofty.legiz.security;
 
-import com.alessandro54.jwtspring.filter.CustomAuthenticationFilter;
-import com.alessandro54.jwtspring.filter.CustomAuthorizationFilter;
+import com.terasofty.legiz.filter.CustomAuthenticationFilter;
+import com.terasofty.legiz.filter.CustomAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

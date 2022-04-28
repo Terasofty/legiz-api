@@ -1,4 +1,4 @@
-package com.alessandro54.jwtspring;
+package com.terasofty.legiz;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
