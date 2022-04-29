@@ -1,7 +1,7 @@
-package com.terasofty.legiz.service;
+package com.terasofty.legiz.api.domain.service;
 
-import com.terasofty.legiz.domain.Role;
-import com.terasofty.legiz.domain.User;
+import com.terasofty.legiz.api.domain.models.Role;
+import com.terasofty.legiz.api.domain.models.User;
 
 import java.util.List;
 

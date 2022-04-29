@@ -1,4 +1,4 @@
-package com.terasofty.legiz.controllers;
+package com.terasofty.legiz.api.controllers;
 
 import io.swagger.annotations.Api;
 import org.springframework.http.ResponseEntity;

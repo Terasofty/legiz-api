@@ -1,4 +1,4 @@
-package com.terasofty.legiz.domain;
+package com.terasofty.legiz.api.domain.models;
 
 
 import lombok.*;

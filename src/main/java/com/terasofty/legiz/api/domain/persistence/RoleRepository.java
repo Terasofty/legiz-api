@@ -1,6 +1,6 @@
-package com.terasofty.legiz.repository;
+package com.terasofty.legiz.api.domain.persistence;
 
-import com.terasofty.legiz.domain.Role;
+import com.terasofty.legiz.api.domain.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {

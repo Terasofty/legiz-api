@@ -1,8 +1,8 @@
 package com.terasofty.legiz;
 
-import com.terasofty.legiz.domain.Role;
-import com.terasofty.legiz.service.UserService;
-import com.terasofty.legiz.domain.User;
+import com.terasofty.legiz.api.domain.models.Role;
+import com.terasofty.legiz.api.domain.service.UserService;
+import com.terasofty.legiz.api.domain.models.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
