@@ -29,8 +29,8 @@ openssl rand -hex 32
 Make a `POST` request to `/login` with this JSON format
 ```json
 {
- "username": ...,
- "password:" ...
+ "username": "hyper",
+ "password:": "12345"
 }
 ```
 You will receive a JWT Acess Token

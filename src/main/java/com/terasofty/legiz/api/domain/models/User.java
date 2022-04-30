@@ -6,6 +6,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -23,8 +24,11 @@ public class User {
     @Id @GeneratedValue(strategy = AUTO)
     private Long id;
 
-    @NotNull @NotBlank
-    private String name;
+    @Size(min = 5, max = 30)
+    private String firstName;
+
+    @Size(min = 5, max = 30)
+    private  String lastName;
 
     @NotNull @NotBlank
     @Column(unique = true)
@@ -35,5 +39,4 @@ public class User {
 
     @ManyToMany(fetch = EAGER)
     private Collection<Role> roles = new ArrayList<>();
-
 }

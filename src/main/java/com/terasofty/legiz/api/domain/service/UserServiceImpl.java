@@ -42,10 +42,15 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
     @Override
-    public User saveUser(User user) {
-        log.info("Saving new user {} to the database", user.getName());
+    public User createUser(User user) {
+        log.info("Saving new user {} to the database", user.getFirstName());
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
+    }
+
+    @Override
+    public User deleteUser(User user) {
+        return null;
     }
 
     @Override

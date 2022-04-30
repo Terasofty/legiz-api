@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
@@ -30,8 +29,8 @@ class UserServiceTest {
     @BeforeEach
     void setUp(){
         MockitoAnnotations.openMocks(this);
-        user = new User(1L, "Alessandro", "hyper", "12345", new ArrayList<>());
-        user2 = new User(2L, "John", "john", "12345", new ArrayList<>());
+        user = new User(1L, "Alessandro", "Chumpitaz", "hyper", "12345", new ArrayList<>());
+        user2 = new User(2L, "John", "Smith", "john", "12345", new ArrayList<>());
     }
     @Test
     void getUsers() {
@@ -45,7 +44,8 @@ class UserServiceTest {
     void saveUser() {
         when(userRepository.save(Mockito.any(User.class)))
                 .thenReturn(user);
-        System.out.println(userRepository.findByUsername(user.getUsername()));
+        user = userService.getUser(user.getUsername());
+        System.out.println(user);
         //assertEquals(userRepository.findOne(createdUser.getUsername()), 1);
 
     }
