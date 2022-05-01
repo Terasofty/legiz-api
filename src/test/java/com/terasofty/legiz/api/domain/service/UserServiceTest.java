@@ -1,7 +1,6 @@
 package com.terasofty.legiz.api.domain.service;
 
 import com.terasofty.legiz.api.domain.models.User;
-import com.terasofty.legiz.api.domain.persistence.RoleRepository;
 import com.terasofty.legiz.api.domain.persistence.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,11 +8,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
@@ -42,15 +41,16 @@ class UserServiceTest {
 
     @Test
     void saveUser() {
-        when(userRepository.save(Mockito.any(User.class)))
-                .thenReturn(user);
-        user = userService.getUser(user.getUsername());
-        System.out.println(user);
-        //assertEquals(userRepository.findOne(createdUser.getUsername()), 1);
+        when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
+        System.out.println(userRepository.findById(user.getId()));
+        assertEquals(user.getId(), 1);
 
     }
 
     @Test
     void getUser() {
+        when(userRepository.findByUsername(user.getUsername())).thenReturn(user);
+        User found_user = userService.getUser("hyper");
+        assertEquals(user.getUsername(), found_user.getUsername());
     }
 }
