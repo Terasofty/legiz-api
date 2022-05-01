@@ -12,12 +12,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-class UserServiceTest {
+class UserServiceImplTest {
     @Mock
     private UserRepository userRepository;
     @Mock
@@ -38,19 +37,18 @@ class UserServiceTest {
         assertNotNull(users);
         assertEquals(users.size(), 2);
     }
-
     @Test
     void saveUser() {
         when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
-        System.out.println(userRepository.findById(user.getId()));
-        assertEquals(user.getId(), 1);
-
+        User new_user = userService.createUser(user);
+        assertNotNull(new_user);
+        assertEquals(new_user.getUsername(), "hyper");
     }
-
     @Test
     void getUser() {
         when(userRepository.findByUsername(user.getUsername())).thenReturn(user);
         User found_user = userService.getUser("hyper");
-        assertEquals(user.getUsername(), found_user.getUsername());
+        assertNotNull(found_user);
+        assertEquals(found_user.getUsername(), "hyper");
     }
 }

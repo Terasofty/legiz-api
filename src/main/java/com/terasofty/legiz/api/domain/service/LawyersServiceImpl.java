@@ -2,9 +2,17 @@ package com.terasofty.legiz.api.domain.service;
 
 import com.terasofty.legiz.api.domain.models.Lawyer;
 import com.terasofty.legiz.api.domain.models.Specialization;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
+@Transactional
+@Slf4j
 public class LawyersServiceImpl implements LawyersService{
     @Override
     public List<Lawyer> getLawyers() {
