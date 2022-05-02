@@ -15,17 +15,17 @@ import java.util.*;
 import static java.util.Arrays.stream;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 @RequiredArgsConstructor
-public class UserResource {
+public class UsersController {
     private final UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping
     public ResponseEntity<List<User>>getUsers(){
         return ResponseEntity.ok().body(userService.getUsers());
     }
 
-    @PostMapping("/users/create")
+    @PostMapping("/create")
     public ResponseEntity<User>saveUser(@RequestBody User user){
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/users/save").toUriString());
         return ResponseEntity.created(uri).body(userService.createUser(user));
@@ -37,7 +37,7 @@ public class UserResource {
         return ResponseEntity.ok().body(userService.saveRole(role));
     }
 
-    @PostMapping("/roles/assign")
+    @PostMapping("/assign-role")
     public ResponseEntity<?>addRoleToUser(@RequestBody RoleToUserForm form) {
         userService.addRoleToUser(form.getUsername(), form.getRoleName());
         return ResponseEntity.ok().build();
