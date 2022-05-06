@@ -2,6 +2,7 @@ package com.terasofty.legiz.api.domain.service.implementation;
 
 import com.terasofty.legiz.api.domain.models.Lawyer;
 import com.terasofty.legiz.api.domain.models.Specialization;
+import com.terasofty.legiz.api.domain.persistence.LawyerRepository;
 import com.terasofty.legiz.api.domain.service.LawyersService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,6 +16,7 @@ import java.util.List;
 @Transactional
 @Slf4j
 public class LawyersServiceImpl implements LawyersService {
+    private final LawyerRepository lawyerRepository;
     @Override
     public List<Lawyer> getLawyers() {
         return null;
@@ -22,12 +24,12 @@ public class LawyersServiceImpl implements LawyersService {
 
     @Override
     public Lawyer getLawyer(String username) {
-        return null;
+        return lawyerRepository.findByUserUsername(username);
     }
 
     @Override
     public Lawyer createLawyer(Lawyer lawyer) {
-        return null;
+        return lawyerRepository.save(lawyer);
     }
 
     @Override

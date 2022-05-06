@@ -1,9 +1,9 @@
 package com.terasofty.legiz.db;
 
-import com.terasofty.legiz.api.domain.models.Role;
-import com.terasofty.legiz.api.domain.models.Specialization;
-import com.terasofty.legiz.api.domain.models.User;
+import com.terasofty.legiz.api.domain.models.*;
+import com.terasofty.legiz.api.domain.service.LawyersService;
 import com.terasofty.legiz.api.domain.service.SpecializationsService;
+import com.terasofty.legiz.api.domain.service.SubscriptionService;
 import com.terasofty.legiz.api.domain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,6 +18,10 @@ public class DataSeed implements CommandLineRunner {
     UserService userService;
     @Autowired
     SpecializationsService specializationsService;
+    @Autowired
+    SubscriptionService subscriptionService;
+    @Autowired
+    LawyersService lawyersService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -25,6 +29,8 @@ public class DataSeed implements CommandLineRunner {
             createRoles();
             createUsers();
             createSpecializations();
+            createSubscriptions();
+            createLawyers();
         }
     }
     private void createRoles() {
@@ -47,7 +53,17 @@ public class DataSeed implements CommandLineRunner {
         specializationsService.createSpecialization(new Specialization(null, "Family"));
         specializationsService.createSpecialization(new Specialization(null, "International"));
     }
+    private void createSubscriptions() {
+        subscriptionService.createSubscription(new Subscription(null, "MEMBER", 39.99, ""));
+    }
     private void createLawyers() {
-
+        lawyersService.createLawyer(
+                new Lawyer(
+                        null,
+                        userService.getUser("john"),
+                        new ArrayList<>(),
+                        new Subscription()
+                        ));
+        subscriptionService.addSubscriptionToLawyer("john", "MEMBER");
     }
 }

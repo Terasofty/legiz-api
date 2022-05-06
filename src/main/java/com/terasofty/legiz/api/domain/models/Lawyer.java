@@ -24,13 +24,14 @@ public class Lawyer {
     @GeneratedValue(strategy = AUTO)
     private Long id;
 
-    @OneToOne(cascade = ALL)
+    @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @ManyToMany(fetch = LAZY)
+    @ManyToMany(fetch = LAZY, cascade = ALL)
     private Collection<Specialization> specializations = new ArrayList<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = ALL)
+    @JoinColumn(name = "subscription_id", referencedColumnName = "id")
     private Subscription subscription;
 }

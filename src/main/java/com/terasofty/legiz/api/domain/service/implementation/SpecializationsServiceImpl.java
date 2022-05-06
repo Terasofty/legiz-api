@@ -39,7 +39,6 @@ public class SpecializationsServiceImpl implements SpecializationsService {
 
     @Override
     public void addSpecializationToLawyer(String username, String specializationName) {
-        log.info("Adding {} to {} ussr", specializationName, username);
-
+        log.info("Adding {} to user {}", specializationName, username);
     }
 }

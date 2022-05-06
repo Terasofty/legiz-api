@@ -23,6 +23,9 @@ public class Subscription {
     @GeneratedValue(strategy = AUTO)
     private Long id;
 
+    @NotNull @NotBlank
+    private String name;
+
     @NotBlank @NotNull
     private Double price;
 
