@@ -10,6 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 @Component
 public class DataSeed implements CommandLineRunner {
@@ -20,9 +21,11 @@ public class DataSeed implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        createRoles();
-        createUsers();
-        createSpecializations();
+        if (!Objects.equals(System.getenv("SPRING_ENV"), "prod")) {
+            createRoles();
+            createUsers();
+            createSpecializations();
+        }
     }
     private void createRoles() {
         userService.saveRole(new Role(null, "ROLE_CLIENT"));
