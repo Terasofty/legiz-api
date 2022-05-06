@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.lang.Nullable;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 import static javax.persistence.GenerationType.AUTO;
 
@@ -17,17 +17,11 @@ import static javax.persistence.GenerationType.AUTO;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Advice {
+public class Document {
     @Id
     @GeneratedValue(strategy = AUTO)
     private Long id;
 
-    @NotNull
-    @NotBlank
-    private String description;
-
-    private String meetingUrl;
-
-    @Nullable
-    private String response;
+    @Column(nullable = true, length = 64)
+    private String document;
 }

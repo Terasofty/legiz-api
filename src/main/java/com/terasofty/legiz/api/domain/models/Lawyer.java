@@ -30,4 +30,7 @@ public class Lawyer {
 
     @ManyToMany(fetch = LAZY)
     private Collection<Specialization> specializations = new ArrayList<>();
+
+    @ManyToOne
+    private Subscription subscription;
 }

@@ -9,6 +9,7 @@ import javax.persistence.*;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.GenerationType.AUTO;
+import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Getter
@@ -17,7 +18,7 @@ import static javax.persistence.GenerationType.AUTO;
 @AllArgsConstructor
 public class Client {
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     @OneToOne(cascade = ALL)
