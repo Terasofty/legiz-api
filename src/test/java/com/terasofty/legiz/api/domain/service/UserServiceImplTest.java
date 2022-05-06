@@ -2,6 +2,7 @@ package com.terasofty.legiz.api.domain.service;
 
 import com.terasofty.legiz.api.domain.models.User;
 import com.terasofty.legiz.api.domain.persistence.UserRepository;
+import com.terasofty.legiz.api.domain.service.implementation.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

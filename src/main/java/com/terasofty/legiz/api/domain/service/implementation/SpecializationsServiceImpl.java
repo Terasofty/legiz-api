@@ -1,7 +1,8 @@
-package com.terasofty.legiz.api.domain.service;
+package com.terasofty.legiz.api.domain.service.implementation;
 
 import com.terasofty.legiz.api.domain.models.Specialization;
 import com.terasofty.legiz.api.domain.persistence.SpecializationRepository;
+import com.terasofty.legiz.api.domain.service.SpecializationsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

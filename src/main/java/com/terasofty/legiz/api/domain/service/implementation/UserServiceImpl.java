@@ -1,9 +1,10 @@
-package com.terasofty.legiz.api.domain.service;
+package com.terasofty.legiz.api.domain.service.implementation;
 
 import com.terasofty.legiz.api.domain.models.Role;
 import com.terasofty.legiz.api.domain.persistence.RoleRepository;
 import com.terasofty.legiz.api.domain.persistence.UserRepository;
 import com.terasofty.legiz.api.domain.models.User;
+import com.terasofty.legiz.api.domain.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
