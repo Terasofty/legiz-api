@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.MERGE;
 import static javax.persistence.GenerationType.AUTO;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -21,7 +22,7 @@ public class Client {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = ALL)
+    @OneToOne(cascade = MERGE)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 }

@@ -26,6 +26,7 @@ public class Advice {
     @NotBlank
     private String description;
 
+    @Nullable
     private String meetingUrl;
 
     @Nullable

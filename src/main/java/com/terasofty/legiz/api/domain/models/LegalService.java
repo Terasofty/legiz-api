@@ -13,6 +13,8 @@ import javax.validation.constraints.NotNull;
 
 import java.util.Collection;
 
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -37,11 +39,11 @@ public class LegalService {
     private Lawyer lawyer;
 
     @Nullable
-    @ManyToOne
+    @ManyToOne(cascade = ALL)
     private CustomCase customCase;
 
     @Nullable
-    @ManyToOne
+    @ManyToOne(cascade = ALL)
     private Advice advice;
 
     @OneToMany

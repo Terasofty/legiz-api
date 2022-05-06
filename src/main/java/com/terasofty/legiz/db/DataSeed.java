@@ -1,10 +1,7 @@
 package com.terasofty.legiz.db;
 
 import com.terasofty.legiz.api.domain.models.*;
-import com.terasofty.legiz.api.domain.service.LawyersService;
-import com.terasofty.legiz.api.domain.service.SpecializationsService;
-import com.terasofty.legiz.api.domain.service.SubscriptionService;
-import com.terasofty.legiz.api.domain.service.UserService;
+import com.terasofty.legiz.api.domain.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -22,6 +19,8 @@ public class DataSeed implements CommandLineRunner {
     SubscriptionService subscriptionService;
     @Autowired
     LawyersService lawyersService;
+    @Autowired
+    ClientsService clientsService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -31,6 +30,7 @@ public class DataSeed implements CommandLineRunner {
             createSpecializations();
             createSubscriptions();
             createLawyers();
+            createClient();
         }
     }
     private void createRoles() {
@@ -65,5 +65,8 @@ public class DataSeed implements CommandLineRunner {
                         new Subscription()
                         ));
         subscriptionService.addSubscriptionToLawyer("john", "MEMBER");
+    }
+    private void createClient() {
+        clientsService.createClient(new Client(null, userService.getUser("hyper")));
     }
 }

@@ -20,8 +20,6 @@ import static org.mockito.Mockito.when;
 class UserServiceImplTest {
     @Mock
     private UserRepository userRepository;
-    @Mock
-    private PasswordEncoder passwordEncoder;
     private User user, user2;
     @InjectMocks
     private UserServiceImpl userService;
