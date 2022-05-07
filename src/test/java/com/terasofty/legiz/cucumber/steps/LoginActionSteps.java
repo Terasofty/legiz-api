@@ -25,14 +25,24 @@ public class LoginActionSteps {
     }
 
     @And("User enters {string} and {string}")
-    public void userEntersAnd(String arg0, String arg1) {
-        driver.findElement(By.id("username_field")).sendKeys("hyper");
-        driver.findElement(By.id("password_field")).sendKeys("12345");
+    public void userEntersAnd(String username, String password) {
+        driver.findElement(By.id("username_field")).sendKeys(username);
+        driver.findElement(By.id("password_field")).sendKeys(password);
         driver.findElement(By.id("submit")).click();
     }
 
     @Then("Message displayed Login Successfully")
     public void messageDisplayedLoginSuccessfully() {
         driver.getPageSource().contains("Login successful.");
+    }
+
+    @When("User Log out from the Application")
+    public void userLogOutFromTheApplication() {
+        driver.findElement(By.id("logout")).click();
+    }
+
+    @Then("Message displayed Log out Successfully")
+    public void messageDisplayedLogOutSuccessfully() {
+        driver.getPageSource().contains("Logout");
     }
 }
