@@ -34,7 +34,7 @@ public class LegalServicesServiceImpl implements LegalServicesService {
 
     @Override
     public LegalService getLegalService(Long id) {
-        return legalServiceRepository.getById(id);
+        return legalServiceRepository.findById(id).get();
     }
 
     @Override
