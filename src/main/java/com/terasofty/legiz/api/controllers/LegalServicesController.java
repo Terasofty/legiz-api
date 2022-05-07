@@ -7,7 +7,9 @@ import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -21,9 +23,15 @@ public class LegalServicesController {
         return ResponseEntity.ok().body(legalServicesService.getLegalServices());
     }
 
+    @GetMapping("/{caseId}")
+    public ResponseEntity<LegalService> getCase(@PathVariable String caseId) {
+        return ResponseEntity.ok().body(legalServicesService.getLegalService(Long.parseLong(caseId)));
+    }
+
     @PostMapping
     public ResponseEntity<LegalService> createCase(@RequestBody LegalServiceForm payload) {
         LegalService legalService = legalServicesService.buildLegalService(payload);
-        return ResponseEntity.ok().body(legalServicesService.createLegalService(legalService));
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/cases/create").toUriString());
+        return ResponseEntity.created(uri).body(legalServicesService.createLegalService(legalService));
     }
 }
