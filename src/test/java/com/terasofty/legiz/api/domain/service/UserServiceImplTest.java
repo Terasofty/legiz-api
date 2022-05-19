@@ -37,13 +37,6 @@ class UserServiceImplTest {
         assertEquals(users.size(), 2);
     }
     @Test
-    void saveUser() {
-        when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
-        User new_user = userService.createUser(user);
-        assertNotNull(new_user);
-        assertEquals(new_user.getUsername(), "hyper");
-    }
-    @Test
     void getUser() {
         when(userRepository.findByUsername(user.getUsername())).thenReturn(user);
         User found_user = userService.getUser("hyper");
