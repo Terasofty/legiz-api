@@ -24,5 +24,18 @@ services:
     ports:
       - 5432:5432
     restart: always
+  jenkins:
+    image: jenkins/jenkins:jdk17-preview
+    ports:
+      - 8081:8080
+      - 50000:50000
+    networks:
+      jenkins_net:
+        aliases:
+          - jenkins_net
+
 volumes:
   postgres_data:
+  jenkins_data:
+networks:
+  jenkins_net:
