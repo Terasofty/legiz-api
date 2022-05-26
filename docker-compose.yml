@@ -9,9 +9,7 @@ services:
       - db
     environment:
       - SPRING_ENV=dev
-      - DATABASE_URL=jdbc:postgresql://db:5432/postgres
-      - DATABASE_USERNAME=postgres
-      - DATABASE_PASSWORD=postgres
+      - DATABASE_URL=postgresql://db:5432/postgres
       - JWT_SECRET=705cd8cdf0a9671a5a78af10ab8679d69386b7e351803757ea86ae29792f2d48
   db:
     image: postgres
