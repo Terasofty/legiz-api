@@ -3,14 +3,14 @@ version: '3.3'
 services:
   app:
     build: ./
+    environment:
+      - SPRING_ENV=dev
+      - DATABASE_URL=postgresql://db:5432/postgres?user=postgres&password=postgres
+      - JWT_SECRET=705cd8cdf0a9671a5a78af10ab8679d69386b7e351803757ea86ae29792f2d48
     ports:
       - 8080:8080
     depends_on:
       - db
-    environment:
-      - SPRING_ENV=dev
-      - DATABASE_URL=postgresql://db:5432/postgres
-      - JWT_SECRET=705cd8cdf0a9671a5a78af10ab8679d69386b7e351803757ea86ae29792f2d48
   db:
     image: postgres
     environment:

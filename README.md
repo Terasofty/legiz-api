@@ -1,7 +1,8 @@
-## Spring API + JWT Auth Template
+## Legiz Api with Docker
 
 Starter REST API with JWT Security
 
+## Conventional Build
 ### Dependencies
 * Java OpenJDK 17
 * Postgres 12.9+
@@ -10,14 +11,16 @@ This API uses environment variables for local development, same for staging and 
 
 **This must be configured before running the app**
 
-| Name                  | Description                                   |
-|-----------------------|-----------------------------------------------|
-| **SPRING_ENV**        | This sets the current environment `dev, prod` |
-| **DATABASE_URL**      | Database URL for connection                   |
-| **DATABASE_USERNAME** | Database user eg. `postgres`                  |
-| **DATABASE_PASSWORD** | Secret for database access                    |
- | **JWT_SECRET**        | Secret for jwt encoding                       |
+| Name             | Description                                                                                               |
+|------------------|-----------------------------------------------------------------------------------------------------------|
+| **SPRING_ENV**   | This sets the current environment `dev, prod`                                                             |
+| **DATABASE_URL** | Database URL for connection eg: `postgresql://<host>:<port>/<dbname>?user=<username>&password=<password>` |
+ | **JWT_SECRET**   | Secret for jwt encoding                                                                                   |
 
+
+## Docker Build
+
+Just run `docker compose up`
 
 **For a secret generation run**
 ```shell
