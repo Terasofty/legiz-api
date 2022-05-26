@@ -20,9 +20,12 @@ import static org.mockito.Mockito.when;
 class UserServiceImplTest {
     @Mock
     private UserRepository userRepository;
+    @Mock
+    private PasswordEncoder passwordEncoder;
     private User user, user2;
     @InjectMocks
     private UserServiceImpl userService;
+
     @BeforeEach
     void setUp(){
         MockitoAnnotations.openMocks(this);
@@ -35,6 +38,13 @@ class UserServiceImplTest {
         List<User> users = userService.getUsers();
         assertNotNull(users);
         assertEquals(users.size(), 2);
+    }
+    @Test
+    void saveUser() {
+        when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
+        User new_user = userService.createUser(user);
+        assertNotNull(new_user);
+        assertEquals(new_user.getUsername(), "hyper");
     }
     @Test
     void getUser() {

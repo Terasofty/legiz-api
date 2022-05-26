@@ -12,4 +12,5 @@ public interface UserService {
     User deleteUser(User user);
     Role saveRole(Role role);
     void addRoleToUser(String username, String roleName);
+    User getCurrentUser(String authorizationHeader);
 }

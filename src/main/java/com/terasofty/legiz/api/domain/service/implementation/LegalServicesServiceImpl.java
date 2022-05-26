@@ -3,6 +3,7 @@ package com.terasofty.legiz.api.domain.service.implementation;
 import com.terasofty.legiz.api.domain.models.Advice;
 import com.terasofty.legiz.api.domain.models.CustomCase;
 import com.terasofty.legiz.api.domain.models.LegalService;
+import com.terasofty.legiz.api.domain.models.User;
 import com.terasofty.legiz.api.domain.persistence.LegalServiceRepository;
 import com.terasofty.legiz.api.domain.service.*;
 import com.terasofty.legiz.api.forms.LegalServiceForm;
@@ -30,6 +31,11 @@ public class LegalServicesServiceImpl implements LegalServicesService {
     @Override
     public List<LegalService> getLegalServices() {
         return legalServiceRepository.findAll();
+    }
+
+    @Override
+    public List<LegalService> getCustomCases(User user) {
+        return legalServiceRepository.findByClientUser(user);
     }
 
     @Override

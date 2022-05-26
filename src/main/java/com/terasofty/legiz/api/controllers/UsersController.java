@@ -42,6 +42,10 @@ public class UsersController {
         userService.addRoleToUser(form.getUsername(), form.getRoleName());
         return ResponseEntity.ok().build();
     }
+    @GetMapping("/profile")
+    public ResponseEntity<User> getCurrentUser(@RequestHeader("Authorization") String authHeader) {
+        return ResponseEntity.ok().body(userService.getCurrentUser(authHeader));
+    }
 
     @Data
     static

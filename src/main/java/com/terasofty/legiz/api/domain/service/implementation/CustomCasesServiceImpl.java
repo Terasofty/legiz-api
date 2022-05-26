@@ -5,9 +5,11 @@ import com.terasofty.legiz.api.domain.persistence.CustomCaseRepository;
 import com.terasofty.legiz.api.domain.service.CustomCasesService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
