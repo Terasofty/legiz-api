@@ -17,4 +17,10 @@ public class LegalServiceForm {
         this.type = type;
         this.description = description;
     }
+    public String toJson() {
+        return "{ \"clientUsername\":\"" + clientUsername + "\"," +
+                " \"lawyerUsername\":\"" + lawyerUsername + "\"," +
+                " \"type\":\"" + type + "\"," +
+                " \"description\":\"" + description + "\"}";
+    }
 }

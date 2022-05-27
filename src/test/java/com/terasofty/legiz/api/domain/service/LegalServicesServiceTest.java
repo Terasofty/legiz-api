@@ -8,8 +8,6 @@ import com.terasofty.legiz.api.domain.service.implementation.ClientsServiceImpl;
 import com.terasofty.legiz.api.domain.service.implementation.LawyersServiceImpl;
 import com.terasofty.legiz.api.domain.service.implementation.LegalServicesServiceImpl;
 import com.terasofty.legiz.api.forms.LegalServiceForm;
-import io.cucumber.java.bs.A;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
