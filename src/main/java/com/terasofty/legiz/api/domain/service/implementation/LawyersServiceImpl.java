@@ -19,7 +19,7 @@ public class LawyersServiceImpl implements LawyersService {
     private final LawyerRepository lawyerRepository;
     @Override
     public List<Lawyer> getLawyers() {
-        return null;
+        return lawyerRepository.findAll();
     }
 
     @Override

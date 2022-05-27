@@ -51,6 +51,7 @@ public class LegalServicesServiceImpl implements LegalServicesService {
     public LegalService buildLegalService(LegalServiceForm legalServiceForm) {
         LegalService legalService = new LegalService(
                 null,
+                legalServiceForm.getTitle(),
                 DRAFT,
                 clientsService.getClient(legalServiceForm.getClientUsername()),
                 lawyersService.getLawyer(legalServiceForm.getLawyerUsername()),

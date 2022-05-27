@@ -42,7 +42,7 @@ class ClientMakeCustomCaseTest {
     void setUp() {
         String BASE_URL = "http://localhost:8080";
         token = AuthorizeUserHelper.authorizeUser("hyper", "12345");
-        payload = new LegalServiceForm("hyper","john", "custom", "Представительство");
+        payload = new LegalServiceForm("help","hyper","john", "custom", "Представительство");
         RestAssured.baseURI = BASE_URL;
         request = RestAssured.given();
         request.header("Content-Type", "application/json");
