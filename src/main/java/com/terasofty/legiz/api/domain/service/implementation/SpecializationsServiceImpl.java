@@ -1,6 +1,8 @@
 package com.terasofty.legiz.api.domain.service.implementation;
 
+import com.terasofty.legiz.api.domain.models.Lawyer;
 import com.terasofty.legiz.api.domain.models.Specialization;
+import com.terasofty.legiz.api.domain.persistence.LawyerRepository;
 import com.terasofty.legiz.api.domain.persistence.SpecializationRepository;
 import com.terasofty.legiz.api.domain.service.SpecializationsService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import java.util.List;
 @Slf4j
 public class SpecializationsServiceImpl implements SpecializationsService {
     private final SpecializationRepository specializationRepository;
+    private final LawyerRepository lawyerRepository;
     @Override
     public List<Specialization> getSpecializations() {
         return specializationRepository.findAll();
@@ -40,5 +43,8 @@ public class SpecializationsServiceImpl implements SpecializationsService {
     @Override
     public void addSpecializationToLawyer(String username, String specializationName) {
         log.info("Adding {} to user {}", specializationName, username);
+        Lawyer lawyer = lawyerRepository.findByUserUsername(username);
+        Specialization specialization = specializationRepository.findByName(specializationName);
+        lawyer.getSpecializations().add(specialization);
     }
 }

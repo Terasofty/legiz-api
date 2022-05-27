@@ -34,7 +34,7 @@ public class DataSeed implements CommandLineRunner {
         }
     }
     private void createRoles() {
-        userService.saveRole(new Role(null, "ROLE_CLIENT"));
+        userService.saveRole(new Role(null, "ROLE_CUSTOMER"));
         userService.saveRole(new Role(null, "ROLE_LAWYER"));
         userService.saveRole(new Role(null, "ROLE_ADMIN"));
     }
@@ -44,6 +44,7 @@ public class DataSeed implements CommandLineRunner {
         userService.createUser(new User(null, "Alessandro", "Chumpitaz", "hyper", "12345", new ArrayList<>()));
 
         userService.addRoleToUser("hyper", "ROLE_ADMIN");
+        userService.addRoleToUser("hyper", "ROLE_CUSTOMER");
         userService.addRoleToUser("john", "ROLE_LAWYER");
         userService.addRoleToUser("tony", "ROLE_LAWYER");
     }
@@ -65,6 +66,8 @@ public class DataSeed implements CommandLineRunner {
                         new Subscription()
                         ));
         subscriptionService.addSubscriptionToLawyer("john", "MEMBER");
+        specializationsService.addSpecializationToLawyer("john", "Criminal");
+        specializationsService.addSpecializationToLawyer("john", "Family");
     }
     private void createClient() {
         clientsService.createClient(new Client(null, userService.getUser("hyper")));
