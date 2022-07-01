@@ -24,6 +24,12 @@ public class Lawyer {
     @GeneratedValue(strategy = AUTO)
     private Long id;
 
+    private String photoUrl;
+
+    @Lob
+    @Column(length = 512)
+    private String experience;
+
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;

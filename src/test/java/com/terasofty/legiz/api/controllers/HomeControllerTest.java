@@ -22,8 +22,4 @@ class HomeControllerTest {
     public void contextLoads() throws Exception {
         assertThat(controller).isNotNull();
     }
-    @Test
-    public void greet() {
-
-    }
 }

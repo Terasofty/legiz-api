@@ -1,34 +1,18 @@
 package com.terasofty.legiz.integration;
 
-import com.terasofty.legiz.api.domain.enumerable.LegalServiceStatus;
 import com.terasofty.legiz.api.domain.models.*;
-import com.terasofty.legiz.api.domain.persistence.CustomCaseRepository;
-import com.terasofty.legiz.api.domain.persistence.LegalServiceRepository;
-import com.terasofty.legiz.api.domain.service.ClientsService;
-import com.terasofty.legiz.api.domain.service.LegalServicesService;
-import com.terasofty.legiz.api.domain.service.implementation.LegalServicesServiceImpl;
 import com.terasofty.legiz.api.forms.LegalServiceForm;
 import com.terasofty.legiz.helper.AuthorizeUserHelper;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.checkerframework.checker.units.qual.A;
-import org.checkerframework.checker.units.qual.C;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-
-import java.util.ArrayList;
-
-import static org.mockito.Mockito.when;
 
 class ClientMakeCustomCaseTest {
     @Autowired
@@ -37,7 +21,6 @@ class ClientMakeCustomCaseTest {
     private static Response response;
     private static String token;
     private LegalServiceForm payload;
-    private LegalService service;
     @BeforeEach
     void setUp() {
         String BASE_URL = "http://localhost:8080";
