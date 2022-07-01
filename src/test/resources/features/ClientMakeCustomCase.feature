@@ -1,10 +1,9 @@
-Feature: Client Make a Custom Case
-  As a Client
-  I want to add a Custom Case
+Feature: Client Make an API Custom Case
   Background:
-    Given The Endpoint "http://localhost:8080" is available
-    Given I am an Authorized User
-    Scenario: Add Custom Case
-      When  A Custom Case Request is sent with values "hyper" "john" "custom" "Test Test Test"
-      Then A Response with 201 is received
-      And A Custom Case Resource is created
+    Given the client credentials "hyper" "12345"
+  Scenario: Add Custom Case
+    Given the client click login button
+    When the client fills the login form
+    Then the client navigates to Custom Cases page
+    Given the following case "john" "Представительство Представительство"
+    When the client clicks on the Add Custom Case button

@@ -8,8 +8,6 @@ import com.terasofty.legiz.api.domain.service.implementation.ClientsServiceImpl;
 import com.terasofty.legiz.api.domain.service.implementation.LawyersServiceImpl;
 import com.terasofty.legiz.api.domain.service.implementation.LegalServicesServiceImpl;
 import com.terasofty.legiz.api.forms.LegalServiceForm;
-import io.cucumber.java.bs.A;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -40,8 +38,8 @@ class LegalServicesServiceTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        data = new LegalServiceForm("hyper", "john", "advice", "I need to make a payment contract");
-        data2 = new LegalServiceForm("hyper", "john", "custom", "I need to make a payment contract");
+        data = new LegalServiceForm("help", "hyper", "john", "advice", "I need to make a payment contract");
+        data2 = new LegalServiceForm("help", "hyper", "john", "custom", "I need to make a payment contract");
         service1 = legalServicesService.buildLegalService(data);
         service2 = legalServicesService.buildLegalService(data);
     }

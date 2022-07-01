@@ -28,6 +28,9 @@ public class LegalService {
     private Long id;
 
     @NotNull @NotBlank
+    private String title;
+
+    @NotNull @NotBlank
     private LegalServiceStatus status;
 
     @ManyToOne

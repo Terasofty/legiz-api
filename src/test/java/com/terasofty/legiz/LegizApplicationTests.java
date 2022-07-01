@@ -8,5 +8,4 @@ class LegizApplicationTests {
     @Test
     void contextLoads() {
     }
-
 }
